@@ -1,0 +1,41 @@
+---
+title: "1.1.Variables"
+author: "Enes Kemal Ergin"
+date: "December 1, 2015"
+output: html_document
+runtime: shiny
+---
+
+
+# First Lecture on Statistics: Variables
+
+In statistics we classify variables into four different kinds:
+
+- Nominal 
+- Ordinal
+- Interval
+- Ratio
+
+The first definition comes from [S. S. Stevens an his paper published on Scince Magazine June 7 1946, On the Theory of Scales of Measurements](http://www.mpopa.ro/statistica_licenta/Stevens_Measurement.pdf).
+
+__Nominal variable__: assigns cases into categories, such as an answer of "what is your favorite color?" question. 
+
+__Ordinal variable__: used to rank order the classes, such as ranking the ages of students in the class, you can rank them. All kinds of ranking is ordinal variable.
+
+__Interval variables__: are variables for which their central characteristic is that they can be measured along a continuum and they have a numerical value (for example, temperature measured in degrees Celsius or Fahrenheit). So the difference between 20C and 30C is the same as 30C to 40C. However, temperature measured in degrees Celsius or Fahrenheit is NOT a ratio variable.([Source](https://statistics.laerd.com/statistical-guides/types-of-variable.php))
+
+__Ratio variable__: are very similar to interval variables but for ratio variable there is also a case called "True zero". For instance, in population we can talk about rations of the two population but if there is a case which population is zero that means no body lives there, that is ratio variable. 
+
+Here is a small example of interval and ratio variable representations in R:
+
+```{r}
+# Assign to the variable 'longitudes' a vector with the longitudes
+# This is an interval variable.
+longitudes <- c(10,20,30,40)
+
+
+# Assign the times it takes for an athlete to run 100 meters to the variable 'chronos'
+# This is a ratio variable.
+chronos <- c(10.60,10.12,9.58,11.1)
+```
+
