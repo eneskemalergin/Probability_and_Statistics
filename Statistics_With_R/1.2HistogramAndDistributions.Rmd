@@ -1,0 +1,52 @@
+---
+title: "Histogram and Distributions"
+author: "Enes Kemal Ergin"
+date: "December 2, 2015"
+output: html_document
+runtime: shiny
+---
+
+Histogram
+---
+
+Histogram is one of the simplest graph to show a distributions, it is very useful and easy to implement in R. The histogram is a type of bar graph, where bar height or length represents the frequency of occurrence of a continuous distribution of data classes.
+
+> The _distribution_ of a variable is a description of the relative numbers of times each possible outcome will occur in a number of trials.
+
+Since histogram is a graphical method for displaying the shape of a distribution, it is particulary useful when there are a large number of observations.
+
+Let's plot out first histogram using cars data.frame which is built-in in base R.
+
+```{r}
+# Calling cars data.frame
+head(cars) 
+# Summary of the statistics of cars
+summary(cars)
+# Lets plot our first histogram by speed column of cars
+# Title is
+hist(cars$speed, main="Speed distribution of cars", xlab="speeds", ylab="frequency")
+```
+
+When you look at the histogram you can understand the number of cars in different speeds. For instance, you can see that there are around 15 cars with speed 10 and 15.
+
+Histograms can capture information that are not shown in summary statistics of dataframe.
+
+Not all distributions are normal for instance we did not get a normal distribution from our last histogram it is more like left skewed or negative skewed distributions. If we would plot the ```cars$dist```, we would get positive skewed/right skewed distribution, Try and see...
+
+```{r}
+hist(cars$dist, main="Distance distribution of cars", xlab="distances", ylab="frequency")
+```
+
+> Normal Distribution and distribution types
+
+> A __positively skewed distribution__, is a distribution of which the tail on the right side is longer than the one on the left side.
+
+> A __negatively skewed distribution__, is a distribution of which the tail on the left side is longer than the one on the right side.
+
+> A __bimodal distribution__, looks like the back of a two-humped camel. The outcomes of two processes with different distributions are combined in one set of data.
+
+> A __uniform distribution__, sometimes also known as a rectangular distribution, is a distribution that has a fairly constant frequency.
+
+> A __leptokurtic distribution__, is a distribution that is very concentrated around a small range of values. Leptokurtic distributions are characterized by a peak in the histogram.
+
+Simply looking at the histogram will reveal alot of information about the data that you have, for instance. You can easily see if the distribution is normal or not. If it's hard to determine checking summar of statistics will help you determine. 
