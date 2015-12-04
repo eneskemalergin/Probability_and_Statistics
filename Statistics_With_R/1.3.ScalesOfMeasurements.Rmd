@@ -1,0 +1,68 @@
+---
+title: "Scales of Measurement"
+author: "Enes Kemal Ergin"
+date: "December 3, 2015"
+output: html_document
+runtime: shiny
+---
+
+Scales of measurement, like it says in the title, showing the same fact, but expressing it in different ways. For instance we can show temprature with Fahrenheit(F), Celcius(C), and if you are chemist Kelvin(K), these are scales of temprature measurement that we have. 
+
+In statistics we have standart scale called __Z scale__. Any score from any scale can be converted to the z score, it allows really afficient communications between scientists, statisticians, and people use/share data. 
+
+### How do we calculate Z score?
+We calculate z score by 
+
+```
+Z = (X - M)/SD
+```
+
+- X: is a score on an orginal scale (raw score) 
+- M: is the mean
+- SD: is the standart deviation
+
+__Some interesting facts about z score:__
+- The mean of z score always 0
+- If z score is positive that means it is above average
+- If z score is negative that means it is belove average
+
+Let's practice:
+
+```{r}
+data_distribution = rnorm(100) # Creates 100 random number which makes it normal distribution
+hist(data_distribution) # Now we plot it into histogram to see it is normal distribution
+# Let's apply the z score
+mean_data_distribution = mean(data_distribution) # First get the mean of data
+sd_data_distribution = sd(data_distribution) # then we get the standart deviation of data
+zScore_data = (data_distribution - mean_data_distribution) / sd_data_distribution
+hist(zScore_data)
+```
+
+Since we used ```rnorm``` function, which random generation for the normal distribution with mean equal to mean and standard deviation equal to sd.([source](http://www.inside-r.org/r-doc/stats/rnorm)), it is very close to zscore. As we said in features z score's average is always at 0 point. 
+
+
+> Standart Deviation:  in statistics, the standard deviation (SD, also represented by the Greek letter sigma σ or s) is a measure that is used to quantify the amount of variation or dispersion of a set of data values. ([source](https://en.wikipedia.org/wiki/Standard_deviation))
+
+Let's practice more:
+
+- Here we defined a dataset ```ratings_australia``` 100 numbers, min 65, and max 98 
+```{r}
+ratings_australia <- sample(65:99, 100, replace=T) # Creating dataset with given functions. 
+z_ratings_australia <- scale(ratings_australia) # scale function is built-in function for calculating zscore.
+par(mfrow = c(1,2))
+hist(ratings_australia, main="ratings for the Australia", xlab="ratings", ylab="frequencies")
+hist(z_ratings_australia, main="zscored version of ratings", xlab="Zscores", ylab="frequencies")
+```
+
+
+### Percentile rank:
+The percentage of scores that fall at or below a score in distribution. If we have perfect normal distrobution percentile rank will be 50 percent, since mean will be 0 and below will be half of all data.
+
+> Summary:
+
+  - The Z-scale is the standart scale for statistics
+  - Raw scores can be converted to z-scores
+  - Z-scores can be used to find percentile rank
+  
+> Raw score ~ Z-score ~ percentile rank
+  
