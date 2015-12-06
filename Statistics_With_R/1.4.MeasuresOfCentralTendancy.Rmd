@@ -1,0 +1,29 @@
+---
+title: "Measures of Central Tendancy"
+author: "Enes Kemal Ergin"
+date: "December 5, 2015"
+output: html_document
+runtime: shiny
+---
+
+Central tendancy is a concept of comparison between scores/rates. To make sense of central tendancy we use measures, that is where the term "Measures of Centra Tendancy" come from. A __measure of central tendency__ is a single value that attempts to describe a set of data by identifying the central position within that set of data. They are also classed as summary statistics. 
+
+First measure is mean: __the mean (or average)__ is the most popular and well known measure of central tendency, can be formularized sum of all the values in the data set divided by the number of values in the data set.
+
+> Mean value gives us the average of the numerical dataset. 
+
+In R we use function ```mean()``` to get the mean value in the dataset. Let's use small random vector to calculate it's mean with manual way and with ```mean()``` function.
+
+```{r}
+dset <- sample(45:100,100, replace=T)
+mean(dset)
+
+sum(dset)/length(dset) # We used the traditiona formula sum of set divided by the length of a set.
+```
+
+
+Second most popular one is the median value of the numerical dataset. Median basically, the middle score in the dataset. Median can be preferred over mean when the scores are extremely different and biased most in the mean. 
+
+Third most popular one is mode which is the score that occured most often in the set. Mode can be preferable when nominal variables are in places, such as popular baby names in countries. 
+
+
