@@ -24,6 +24,21 @@ sum(dset)/length(dset) # We used the traditiona formula sum of set divided by th
 
 Second most popular one is the median value of the numerical dataset. Median basically, the middle score in the dataset. Median can be preferred over mean when the scores are extremely different and biased most in the mean. 
 
+```{r}
+median(dset)
+```
+
+
 Third most popular one is mode which is the score that occured most often in the set. Mode can be preferable when nominal variables are in places, such as popular baby names in countries. 
 
+For mode there is no built-in function works for both numeric or character variables, we can solve this by writing a function or we can simply ignore the mode: 
+
+```{r}
+Mode <- function(x) {
+  ux <- unique(x)
+  ux[which.max(tabulate(match(x, ux)))]
+}
+
+Mode(dset)
+```
 
